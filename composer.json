@@ -1,0 +1,31 @@
+{
+    "name": "aperta/template-system",
+    "description": "Reusable letter & order/invoice PDF template system with GrapesJS editor for Laravel + Inertia.js projects.",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Richard",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0|^12.0",
+        "barryvdh/laravel-dompdf": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aperta\\TemplateSystem\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aperta\\TemplateSystem\\TemplateSystemServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

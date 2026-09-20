@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('letter_templates', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('company_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->string('type')->default('letter'); // 'letter' or 'order'
+            $table->string('base_design')->default('formal'); // formal | modern | classic | custom
+            $table->longText('html_content');
+            $table->boolean('is_system')->default(false);
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('letter_templates');
+    }
+};
